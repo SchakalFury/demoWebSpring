@@ -12,7 +12,6 @@ public class BlogController {
 
     @GetMapping("/blog")
     public String blogMain(Model model) {
-
         return "blog-main";
     }
 }
