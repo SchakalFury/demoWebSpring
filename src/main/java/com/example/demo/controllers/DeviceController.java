@@ -1,9 +1,13 @@
 package com.example.demo.controllers;
 
 import com.example.demo.dao.DeviceDaoImpl;
+import com.example.demo.models.Device;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @Controller
 public class DeviceController {
@@ -11,25 +15,32 @@ public class DeviceController {
 
     @Autowired
     public DeviceController(DeviceDaoImpl deviceDaoimpl) {
+
         this.deviceDaoimpl = deviceDaoimpl;
     }
 
-    @GetMapping("/get-all-devices")
-        public void getAllDevice() {
-        deviceDaoimpl.getAllDevice();
-    }
+    @GetMapping("/all-devices")
+    public String allDevices(Model model){
+        List<Device> devices = deviceDaoimpl.getAllDevice();
+        model.addAttribute("devices", devices);
+        return "all-devices";
+    };
 
-    @GetMapping("/get-devices-by-id-named")
-    public void getDeviceByIdNamed() {
-        int id = 46;
-        deviceDaoimpl.getDeviceByIdNamed(id);
-    }
+    @GetMapping("/device-by-id")
+    public String deviceById(Model model) {
+        int id = 48;
+        Device device = deviceDaoimpl.getDeviceByIdNamed(id);
+        model.addAttribute("device", device);
+        return "device-by-id";
+    };
 
-    @GetMapping("/get-devices-by-id-Question")
-    public void getDeviceByIdQuestion() {
+    @GetMapping("/device-question")
+    public String deviceQuestion(Model model) {
         int id = 47;
-        deviceDaoimpl.getDeviceByIdQuestion(id);
-    }
+        Device device = deviceDaoimpl.getDeviceByIdQuestion(id);
+        model.addAttribute("device", device);
+        return "device-question";
+    };
 
 
 }

@@ -29,22 +29,22 @@ public class DeviceDaoImpl implements DeviceDao{
     }
 
     @Override
-    public void getAllDevice() {
+    public List<Device> getAllDevice() {
       List<Device> devices = namedParameterJdbcTemplate.query(GET_ALL_DEVICE_NAMED, new DeviceRowMapper());
-        System.out.println(devices);
+        return devices;
     }
 
     @Override
-    public void getDeviceByIdNamed(int id) {
+    public Device getDeviceByIdNamed(int id) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("device_id", id);
         Device device = namedParameterJdbcTemplate.queryForObject(GET_DEVICE_BY_ID_NAMED, paramMap,new DeviceRowMapper());
-        System.out.println(device);
+        return device;
     }
 
     @Override
-    public void getDeviceByIdQuestion(int id) {
+    public Device getDeviceByIdQuestion(int id) {
         Device device = jdbcTemplate.queryForObject(GET_DEVICE_BY_ID_NAMED_QUESTION,new DeviceRowMapper(), id);
-        System.out.println(device);
+        return device;
     }
 }

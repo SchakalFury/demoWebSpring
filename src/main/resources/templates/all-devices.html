@@ -10,9 +10,11 @@
 
 <div class="container mt-5">
     <h1>Blogs Page</h1>
-    <div th:each="el: ${posts}" class="alert alert-info mt-2">
-        <h3 th:text="${el.name}"/>
-        <p th:text="${el.brand}"/>
+    <div th:each="el: ${devices}" class="alert alert-info mt-2">
+        <h3 th:text="${el.deviceName}"/>
+        <p th:text="${el.deviceBrand}"/>
+        <p th:text="${el.countryFactory}"/>
+        <p th:text="${el.price}"/>
         <a th:href="'/blog' + ${el.id}"> Ознакомиться</a>
     </div>
 </div>

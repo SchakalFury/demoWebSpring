@@ -1,9 +1,13 @@
 package com.example.demo.dao;
 
+import com.example.demo.models.Device;
+
+import java.util.List;
+
 public interface DeviceDao {
-    void  getAllDevice();
-    void getDeviceByIdNamed(int id);
-    void getDeviceByIdQuestion(int id);
+    List<Device> getAllDevice();
+    Device getDeviceByIdNamed(int id);
+    Device getDeviceByIdQuestion(int id);
 
 
 }
