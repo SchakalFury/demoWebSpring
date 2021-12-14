@@ -19,14 +19,14 @@ public class DeviceController {
         this.deviceDaoimpl = deviceDaoimpl;
     }
 
-    @GetMapping("/all-devices")
+    @GetMapping("/all-devices")//+
     public String allDevices(Model model){
         List<Device> devices = deviceDaoimpl.getAllDevice();
         model.addAttribute("devices", devices);
         return "all-devices";
     };
 
-    @GetMapping("/device-by-id")
+    @GetMapping("/device-by-id")//+
     public String deviceById(Model model) {
         int id = 48;
         Device device = deviceDaoimpl.getDeviceByIdNamed(id);
@@ -34,13 +34,49 @@ public class DeviceController {
         return "device-by-id";
     };
 
-    @GetMapping("/device-question")
+    @GetMapping("/device-question")//+
     public String deviceQuestion(Model model) {
         int id = 47;
         Device device = deviceDaoimpl.getDeviceByIdQuestion(id);
         model.addAttribute("device", device);
         return "device-question";
     };
+    @GetMapping("/device-named")//+
+    public String getDeviceByNamed(Model model) {
+        String name = "Gear VR (SM-R324)";
+        Device device = deviceDaoimpl.getDeviceByNamed(name);
+        model.addAttribute("device", device);
+        return "device-question";
+    };
 
 
+    @GetMapping("/devices-country")//+
+    public String deviceCountry(Model model){
+        String country = "France";
+        List<Device> devices = deviceDaoimpl.getDeviceCountry(country);
+        model.addAttribute("devices", devices);
+        return "all-devices";
+    };
+
+    @GetMapping("/devices-brand")//++
+    public String deviceBrand(Model model){
+        String brand = "HOMIDO";
+        List<Device> devices = deviceDaoimpl.getDeviceBrand(brand);
+        model.addAttribute("devices", devices);
+        return "all-devices";
+    };
+
+    @GetMapping("/devices-sorting-up")//+
+    public String devicesAsc(Model model){
+        List<Device> devices = deviceDaoimpl.getDeviceAsc();
+        model.addAttribute("devices", devices);
+        return "all-devices";
+    };
+
+    @GetMapping("/devices-sorting-down")//+
+    public String devicesDesc(Model model){
+        List<Device> devices = deviceDaoimpl.getDeviceDesc();
+        model.addAttribute("devices", devices);
+        return "all-devices";
+    };
 }
