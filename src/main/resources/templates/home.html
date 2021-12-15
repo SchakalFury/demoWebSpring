@@ -1,13 +1,103 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+     <link rel="stylesheet" href="/static/style/styles.css" th:href="@{/style/styles.css}">
+    <title>Galaktika Online Store VR</title>
+   
+    <style>
+        #navbar ul{
+          display: none;
+          background-color: rgb(0, 184, 24);
+          position: absolute;
+          top: 100%;
+          
+         
+        }
+        #navbar li:hover ul { display: block; }
+        #navbar, #navbar ul{
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+          
+        }
+        #navbar {
+          height: 60px;
+
+          padding-left: 5%;
+
+          min-width: 500px;
+          
+        }
+        #navbar li {
+          float: left;
+          position: relative;
+          height: 100%; 
+          padding-right: 3%;
+          text-align: center;
+          
+        }
+        #navbar li a {
+          display: block;
+          padding: 10px;
+          width: 100px;
+          color: #fff;
+          text-decoration: none;
+          text-align: justify;
+        }
+        #navbar ul li { float: none; }
+        #navbar li:hover { background-color: rgb(0, 184, 24); }
+        #navbar ul li:hover { background-color: rgb(21, 4, 61); }
+      </style>
+     
 </head>
 <body>
-<h1>HOME PAGE, BITCH!</h1>
+      <div class="toolbar">
+    <ul id="navbar"> 
+        <li><a href="#"><strong>Home</strong></a></li>
+        <li><a href="#"><strong>Store</strong></a></li>
+        <li><a href="#"><strong>Callback</strong></a>
+          <ul>
+            <li><a href="#"><strong>Adress</strong></a></li>
+            <li><a href="#"><strong>Phone</strong></a></li>
+            <li><a href="#"><strong>Email</strong></a></li>
+          </ul>
+        </li>
+        
+        <li><a href="#"><strong>Log In</strong></a></li>
+    
+      </ul>
+    </div>
+<div class="global-container">
+  
+                        <div class="container1">
+        <div class="text-container"><h1> <strong>G A L A K T I K A</strong> </h1></div>
+        <div class="first-block">
+        <div class="img1"></div>
+        <div class="first-text">
+                 <h1>New facets of reality</h1>
+                 <h3>Technology today has allowed us to expand the boundaries of our reality.
+                 Architecture, the design of the most complex mechanisms - this is an incomplete list of what virtual
+                     reality technologies are capable of in 2021.</h3>
+            <h1> Taking video games <br> to the next level...</h1>
+            <h3>The rapid development of virtual and <br>augmented reality has created
+                <br>new formats for video games that provide
+                <br> complete immersion in a new reality.</h3>
+                        </div>
+            <div class="img2"></div>
+            </div>
+            </div>
+    <div class="position">
+    <div class="imgX"></div>
+    <div class="imgY"></div>
+    <div class="imgZ"></div>
+      <strong><h1><b>We have an extensive selection! Take a look at our catalog!</b></h1></strong>
+    </div>
+    <div class="position-bottom">
+    </div>
+</div>
 </body>
 </html>

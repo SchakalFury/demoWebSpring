@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
+
+
 @Controller
 public class DeviceController {
     private DeviceDaoImpl deviceDaoimpl;
@@ -79,4 +81,9 @@ public class DeviceController {
         model.addAttribute("devices", devices);
         return "all-devices";
     };
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("home", "Local Page");
+        return "home";
+    }
 }
