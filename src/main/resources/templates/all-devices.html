@@ -15,7 +15,7 @@
         <p th:text="${el.deviceBrand}"/>
         <p th:text="${el.countryFactory}"/>
         <p th:text="${el.price}"/>
-        <a th:href="'/blog' + ${el.id}"> Ознакомиться</a>
+        <a th:href="@{/device-by-id(id=${el.id})}"> Ознакомиться</a>
     </div>
 </div>
 
