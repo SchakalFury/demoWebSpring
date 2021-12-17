@@ -122,7 +122,8 @@ height: 250px;
 display: flex;
 flex-wrap: wrap;
 width: auto;
-align-items: center;
+
+
 }
 
 .imgX {
@@ -155,7 +156,21 @@ background-size: contain;
 transition: 1.5s;
 border-radius:10px;
 }
+.imgBottom {
+background:url("Galaktika1.png") no-repeat;
+background-size: contain;
+width:113px;
+height:113px;
+margin-bottom: 5px;
+margin-left: 5px;
+border-radius: 10px;
+}
 
+#ul-bottom{
+align:top
+font-family: "Reza Zulmi Sans";
+color: aquamarine;
+}
 
 
 @font-face {

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -17,8 +19,7 @@ public class DeviceController {
 
     @Autowired
     public DeviceController(DeviceDaoImpl deviceDaoimpl) {
-
-        this.deviceDaoimpl = deviceDaoimpl;
+    this.deviceDaoimpl = deviceDaoimpl;
     }
 
     @GetMapping("/all-devices")//+
@@ -29,40 +30,29 @@ public class DeviceController {
     };
 
     @GetMapping("/device-by-id")//+
-    public String deviceById(Model model) {
-        int id = 48;
+    public String deviceById(@RequestParam(name = "id", required = false, defaultValue = "") int id, Model model) {
         Device device = deviceDaoimpl.getDeviceByIdNamed(id);
         model.addAttribute("device", device);
         return "device-by-id";
     };
 
-    @GetMapping("/device-question")//+
-    public String deviceQuestion(Model model) {
-        int id = 47;
-        Device device = deviceDaoimpl.getDeviceByIdQuestion(id);
-        model.addAttribute("device", device);
-        return "device-question";
-    };
-    @GetMapping("/device-named")//+
-    public String getDeviceByNamed(Model model) {
-        String name = "Gear VR (SM-R324)";
+    @RequestMapping("/device-named")//+
+    public String getDeviceByNamed(@RequestParam(name = "name", required = false, defaultValue = "") String name, Model model) {
         Device device = deviceDaoimpl.getDeviceByNamed(name);
         model.addAttribute("device", device);
-        return "device-question";
+        return "device-named";
     };
 
 
-    @GetMapping("/devices-country")//+
-    public String deviceCountry(Model model){
-        String country = "France";
+    @RequestMapping("/devices-country")//+
+    public String deviceCountry(@RequestParam(name = "country", required = false, defaultValue = "") String country, Model model){
         List<Device> devices = deviceDaoimpl.getDeviceCountry(country);
         model.addAttribute("devices", devices);
         return "all-devices";
     };
 
-    @GetMapping("/devices-brand")//++
-    public String deviceBrand(Model model){
-        String brand = "HOMIDO";
+    @RequestMapping("/devices-brand")//++
+    public String deviceBrand(@RequestParam(name = "brand", required = false, defaultValue = "") String brand, Model model){
         List<Device> devices = deviceDaoimpl.getDeviceBrand(brand);
         model.addAttribute("devices", devices);
         return "all-devices";
@@ -86,4 +76,6 @@ public class DeviceController {
         model.addAttribute("home", "Local Page");
         return "home";
     }
+
+
 }
