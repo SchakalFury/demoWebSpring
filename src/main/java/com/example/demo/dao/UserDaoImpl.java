@@ -22,17 +22,17 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    public void getAllUser() {
+    public List<User> getAllUser() {
     List<User> users = namedParameterJdbcTemplate.query(GET_ALL_USER, new UserRowMapper());
-        System.out.println(users);
+       return users;
     }
 
     @Override
-    public void getUserByIdNamed(int id) {
+    public User getUserByIdNamed(Long id) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("user_id", id);
         User user = namedParameterJdbcTemplate.queryForObject(GET_ALL_USER_ID, paramMap, new UserRowMapper());
-        System.out.println(user);
+        return user;
     }
 
 
