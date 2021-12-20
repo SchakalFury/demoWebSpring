@@ -71,7 +71,7 @@ public class DeviceController {
         model.addAttribute("devices", devices);
         return "all-devices";
     };
-    @GetMapping("/")
+    @GetMapping("/home")
     public String home(Model model) {
         model.addAttribute("home", "Local Page");
         return "home";
